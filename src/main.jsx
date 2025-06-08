@@ -18,7 +18,7 @@ let router = createBrowserRouter([
       element: <BookList />
     },
     {
-      path: "/browsebooks/:category",
+      path: "/browsebooks/:category?",
       element: <BrowseBooks />
     },
     {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Book from './Book'
 import "./style.css"
-import { books } from '../utils/books';
+import { useSelector } from 'react-redux';
 
 function BrowseBooks() {
-
+    const books = useSelector(store => store.book.books);
     const [searched, setSearched] = useState("");
     const [arr, setArr] = useState(books);
 
@@ -13,8 +13,8 @@ function BrowseBooks() {
         setSearched(value);
     }
     function handleClick() {
-        const filteredArr = books.filter((data) =>
-            data.title.toLowerCase().includes(searched.toLowerCase())
+        const filteredArr = books.filter((book) =>
+            book.title.toLowerCase().includes(searched.toLowerCase())
         );
         setArr(filteredArr);
     }
@@ -27,7 +27,7 @@ function BrowseBooks() {
         <div className='search'>
             <h2 className='searchHeading'>Search books</h2>
             <div className='searchBarGroup'>
-                <input className='searchBar' type="text" onChange={handleChange} value={searched} onKeyDown={handleKey}/>
+                <input placeholder='search book by title' className='searchBar' type="text" onChange={handleChange} value={searched} onKeyDown={handleKey}/>
                 <button className='searchBtn' onClick={handleClick}>Search</button>
             </div>
         </div>

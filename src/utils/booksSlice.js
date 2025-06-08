@@ -4,7 +4,8 @@ import {books} from "./books";
 const booksSlice = createSlice({
     name: "books",
     initialState: {
-        books: books
+        books: books,
+        booksToShow: []
     },
     reducers: {
         addBook: (state, action) => {
