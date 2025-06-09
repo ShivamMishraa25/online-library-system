@@ -50,7 +50,7 @@ An interactive **Online Library System** built with **React**, **React Router**,
 
 3. **Start the development server**
     ```bash
-    npm start
+    npm run dev
 
 4. **Open in browser**
     Navigate to http://localhost:5173/
