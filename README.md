@@ -46,14 +46,10 @@ An interactive **Online Library System** built with **React**, **React Router**,
 
 2. **Install dependencies**
     ```bash
-    Copy
-    Edit
     npm install
 
 3. **Start the development server**
     ```bash
-    Copy
-    Edit
     npm start
 
 4. **Open in browser**
