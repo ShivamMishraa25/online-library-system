@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-// remove Number()
 
 function BookDetail() {
     const param = useParams();
@@ -9,19 +8,20 @@ function BookDetail() {
     let filteredBook = books.filter(book => book.id == param.id);
     let b = filteredBook[0];
     
-    
   return (
-    <div className='detailPage'>
-        <article className='bookCard'>
-            <img className='bookImg' src={b.imageLink} alt="book" height="200px" width="200px"/>
-            <div className='bookDetails'>
-                <h2 className='bookTitle'>{b.title}</h2>
-                <p className='bookAuthor'>{b.author}</p>
-                <p className='bookDescription'>{b.description}</p>
-                <p className='bookYear'>{b.rating}</p>
+    <div className='detailPage uniqueDetailPage'>
+        <article className='bookDetailCard uniqueBookDetailCard'>
+            <div className="bookDetailImgWrap">
+                <img className='bookDetailImg' src={b.imageLink} alt="book" />
+            </div>
+            <div className='bookDetailInfo'>
+                <h2 className='bookDetailTitle'>{b.title}</h2>
+                <p className='bookDetailAuthor'>{b.author}</p>
+                <p className='bookDetailDescription'>{b.description}</p>
+                {b.rating && <span className="bookDetailRatingBadge">⭐ {b.rating}</span>}
             </div>
         </article>
-        <Link to={"/browsebooks"}>Back to Browse</Link>
+        <Link to={"/browsebooks"} className="backToBrowseLink uniqueBackToBrowseLink">← Back to Browse</Link>
     </div>
   )
 }

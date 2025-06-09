@@ -1,35 +1,39 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Book from './Book'
 import "./style.css"
-import { useDispatch, useSelector } from 'react-redux';
-import { addBook } from '../utils/booksSlice';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function BookList() {
     const books = useSelector(store => store.book.books);
 
-
-  return (
-    <>
-        <section className='welcomeSection'>
-            <h1>Online Library System</h1>
-            <p>Welcome! have a great time reading📖</p>
-        </section>
-        <section className='filterSection'>
-            <p>Filter by Category</p>
-            <Link to={"/browsebooks/fantasy"}>Fantasy</Link>
-            <Link to={"/browsebooks/fiction"}>Fiction</Link>
-            <Link to={"/browsebooks/philosophy"}>Philosophy</Link>
-            <Link to={"/browsebooks/dystopian"}>Dystopian</Link>
-            <Link to={"/browsebooks/classic"}>Classic</Link>
-        </section>
-        <section className='bookList'>
-            {books.map((book) => (
-                <Book bookDetail={book} key={book.id}/>
-            ))}
-        </section>
-    </>
-  )
+    return (
+        <div className="booklistContainer">
+            <section className='welcomeSection'>
+                <h1 className="booklistTitle">📚 Online Library System</h1>
+                <p className="booklistSubtitle">Welcome! Have a great time reading <span role="img" aria-label="book">📖</span></p>
+            </section>
+            <section className='filterSection booklistFilterSection'>
+                <p className="filterLabel">Filter by Category</p>
+                <div className="categoryLinks">
+                    <Link to={"/browsebooks/fantasy"} className="categoryLink">Fantasy</Link>
+                    <Link to={"/browsebooks/fiction"} className="categoryLink">Fiction</Link>
+                    <Link to={"/browsebooks/philosophy"} className="categoryLink">Philosophy</Link>
+                    <Link to={"/browsebooks/dystopian"} className="categoryLink">Dystopian</Link>
+                    <Link to={"/browsebooks/classic"} className="categoryLink">Classic</Link>
+                </div>
+            </section>
+            <section className='bookList'>
+                {books.length === 0 ? (
+                    <div className="noBooksMsg">No books available. Please check back later!</div>
+                ) : (
+                    books.map((book) => (
+                        <Book bookDetail={book} key={book.id}/>
+                    ))
+                )}
+            </section>
+        </div>
+    )
 }
 
 export default BookList

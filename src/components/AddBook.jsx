@@ -59,6 +59,7 @@ function AddBook() {
     return (
         <div className='addBookPage'>
             <form className='addBookSection'>
+                <h2 className="addBookTitle">Add a New Book</h2>
                 <input placeholder='Book Title' onChange={handleTitle} value={title} className='addBookInput' type="text" />
                 <input placeholder='Book Author' onChange={handleAuthor} value={author} className='addBookInput' type="text" />
                 <input placeholder='Book Category' onChange={handleCategory} value={category} className='addBookInput' type="text" />

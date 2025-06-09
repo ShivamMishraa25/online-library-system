@@ -17,11 +17,8 @@ function BrowseBooks() {
         } else {
             setBooksToShow(books);
         }
-    }, [category]);
+    }, [category, books]);
     
-    
-    
-
     function handleChange(e) {
         let value = e.target.value;
         setSearched(value);
@@ -36,30 +33,40 @@ function BrowseBooks() {
         e.key=='Enter' && handleClick();
     }
 
-  return (
-    <>
-        <section className='search'>
-            <h2 className='searchHeading'>Search books</h2>
-            <div className='searchBarGroup'>
-                <input placeholder='search book by title' className='searchBar' type="text" onChange={handleChange} value={searched} onKeyDown={handleKey}/>
-                <button className='searchBtn' onClick={handleClick}>Search</button>
-            </div>
-        </section>
-        <section className='filterSection'>
-            <p>Filter by Category</p>
-            <Link to={"/browsebooks/fantasy"}>Fantasy</Link>
-            <Link to={"/browsebooks/fiction"}>Fiction</Link>
-            <Link to={"/browsebooks/philosophy"}>Philosophy</Link>
-            <Link to={"/browsebooks/dystopian"}>Dystopian</Link>
-            <Link to={"/browsebooks/classic"}>Classic</Link>
-        </section>
-        <section className='bookList'>
-            {booksToShow.map((book) => (
-                <Book bookDetail={book} key={book.id}/>
-            ))}
-        </section>
-    </>
-  )
+    return (
+        <div className="booklistContainer">
+            <section className='welcomeSection'>
+                <h1 className="booklistTitle">🔎 Browse Books</h1>
+                <p className="booklistSubtitle">Find your next favorite book by searching or filtering below!</p>
+            </section>
+            <section className='search'>
+                {/* <h2 className='searchHeading'>Search books</h2> */}
+                <div className='searchBarGroup'>
+                    <input placeholder='search book by title' className='searchBar' type="text" onChange={handleChange} value={searched} onKeyDown={handleKey}/>
+                    <button className='searchBtn' onClick={handleClick}>Search</button>
+                </div>
+            </section>
+            <section className='filterSection booklistFilterSection'>
+                <p className="filterLabel">Filter by Category</p>
+                <div className="categoryLinks">
+                    <Link to={"/browsebooks/fantasy"} className="categoryLink">Fantasy</Link>
+                    <Link to={"/browsebooks/fiction"} className="categoryLink">Fiction</Link>
+                    <Link to={"/browsebooks/philosophy"} className="categoryLink">Philosophy</Link>
+                    <Link to={"/browsebooks/dystopian"} className="categoryLink">Dystopian</Link>
+                    <Link to={"/browsebooks/classic"} className="categoryLink">Classic</Link>
+                </div>
+            </section>
+            <section className='bookList'>
+                {booksToShow.length === 0 ? (
+                    <div className="noBooksMsg">No books found. Try a different search or category!</div>
+                ) : (
+                    booksToShow.map((book) => (
+                        <Book bookDetail={book} key={book.id}/>
+                    ))
+                )}
+            </section>
+        </div>
+    )
 }
 
 export default BrowseBooks;
