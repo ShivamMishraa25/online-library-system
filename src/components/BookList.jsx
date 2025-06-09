@@ -17,11 +17,11 @@ function BookList() {
         </section>
         <section className='filterSection'>
             <p>Filter by Category</p>
-            <Link to={"/browsebooks/:fantasy"}>Fantasy</Link>
-            <Link to={"/browsebooks/:fiction"}>Fiction</Link>
-            <Link to={"/browsebooks/:philosophy"}>Philosophy</Link>
-            <Link to={"/browsebooks/:religious"}>Religious</Link>
-            <Link to={"/browsebooks/:classic"}>Classic</Link>
+            <Link to={"/browsebooks/fantasy"}>Fantasy</Link>
+            <Link to={"/browsebooks/fiction"}>Fiction</Link>
+            <Link to={"/browsebooks/philosophy"}>Philosophy</Link>
+            <Link to={"/browsebooks/dystopian"}>Dystopian</Link>
+            <Link to={"/browsebooks/classic"}>Classic</Link>
         </section>
         <section className='bookList'>
             {books.map((book) => (
