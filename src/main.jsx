@@ -31,7 +31,10 @@ let router = createBrowserRouter([
     }],
     errorElement: <Error />
   }
-])
+], {
+  // ADD THIS LINE: Specify the base path for your application
+  basename: "/online-library-system/", // IMPORTANT: Include trailing slash
+});
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
