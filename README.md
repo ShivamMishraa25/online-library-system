@@ -62,3 +62,6 @@ Feel free to contribute improvements or file issues.
 This project is educational and intended for demonstrating React + Redux functionality.
 
 All book data is managed in-memory (no backend)—so all additions reset on page reload.
+
+<!-- Link of GitHub repository containing the project. -->
+https://github.com/ShivamMishraa25/online-library-system
