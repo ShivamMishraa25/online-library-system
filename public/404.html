@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/online-library-system/" />
+  </head>
+  <body>
+    <script>
+      // For client-side routing fallback
+      var path = location.pathname.replace(/^\/online-library-system/, '');
+      location.replace('/online-library-system/' + (path ? '#' + path : ''));
+    </script>
+  </body>
+</html>

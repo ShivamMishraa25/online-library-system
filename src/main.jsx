@@ -11,7 +11,7 @@ import AddBook from './components/AddBook.jsx'
 
 let router = createBrowserRouter([
   {
-    path: "/oline-library-system",
+    path: "/",
     element: <App />,
     children: [{
       path: "/",
@@ -32,12 +32,11 @@ let router = createBrowserRouter([
     errorElement: <Error />
   }
 ], {
-  // ADD THIS LINE: Specify the base path for your application
-  basename: "/online-library-system/", // IMPORTANT: Include trailing slash
+  basename: "/online-library-system/",
 });
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}/>
   </StrictMode>
-)
+);
