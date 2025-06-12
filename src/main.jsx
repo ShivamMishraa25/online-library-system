@@ -11,7 +11,7 @@ import AddBook from './components/AddBook.jsx'
 
 let router = createBrowserRouter([
   {
-    path: "/",
+    path: "/oline-library-system",
     element: <App />,
     children: [{
       path: "/",
